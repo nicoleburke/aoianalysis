@@ -8,7 +8,7 @@ FirstLook - which AOI was the first look?
 This function specifies which AOI participants look to first for a given trial.
 This function only deals with 2 AOIs - typically used in infant/child
 studies where you want to know which AOI - the left or right AOI - did
-infants/children first look?
+infants/children first look? This data should deal with raw eyetracking data.
 }
 \usage{
 firstlook(dataframe$subjects, dataframe$aoi1, dataframe$aoi2)
