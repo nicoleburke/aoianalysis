@@ -10,9 +10,9 @@
 # Why? Because the boolean evaluations gets mad in the
 #     goal prediction first look function.
 
-library(tidyverse)
 # Get rid of NAs in  and AOI columns
 getridofNA_gp <- function(dataframe, HandAOI, AOI1, AOI2) {
+  library(tidyverse)
   dataframe <- dataframe %>%
     mutate(HandAOI = ifelse(is.na(HandAOI), 999, HandAOI),
            AOI1 = ifelse(is.na(AOI1), 999, AOI1),
