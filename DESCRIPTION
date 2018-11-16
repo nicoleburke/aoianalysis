@@ -5,6 +5,6 @@ Version: 0.1.0
 Author: Nicole Burke 
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: This package contains simple functions for AOI analysis. 
-License: MIT-License
+License: MIT + file License
 Encoding: UTF-8
 LazyData: true
