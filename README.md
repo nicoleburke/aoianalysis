@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## aoianalysis - simple functions to make AOI analysis more simple 
 
 You can use the [editor on GitHub](https://github.com/nicoleburke/aoianalysis/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
