@@ -42,61 +42,72 @@
 # Trying to fix the input so that it can just be the columnhead name
 # input will be: dataframe, "columnnames"
 
-subjects <- data.frame(test["SubjectID"])
-levels(subjects$SubjectID)
-levels(test$SubjectID)
+test <- read.csv("test.csv")
+test <- getridofNA_gp(test, test$hand, test$left, test$right)
 
-dataframe <- test
-subjects <- dataframe[SubjectID]
-neccessaryAOI <- dataframe[HandAOI]
-aoi1 <-
 
-firstlook_gp <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
+subjects <- test["SubjectID"]
+neccessaryAOI <- test["HandAOI"]
+aoi1 <- test["AOI1"]
+newdata <- cbind(subjects, neccessaryAOI, aoi1)
+colnames(newdata) <- c("subjects", "neccesaryAOI", "aoi1")
+
+firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   # First the variables need to be changed
   subjects <- dataframe[subjectID]
-  neccessaryAOI <- dataframe[handAOI]
+  # print("subjects")
+  # print(subjects)
+  handAOI <- dataframe[handAOI]
+  # print("neccesaryAOI")
+  # print(neccessaryAOI)
   aoi1 <- dataframe[AOI1]
+  # print("aoi1")
+  # print(aoi1)
   aoi2 <- dataframe[AOI2]
+  # print("aoi2")
+  # print(aoi2)
   # make new dataframe
-  newdata <- cbind(subjects, neccessaryAOI, aoi1, aoi2)
+  newdata <- cbind(subjects, handAOI, aoi1, aoi2)
+  colnames(newdata) <- c("subjects", "neccesaryAOI", "aoi1", "aoi2")
+  print("newdata")
+  print(newdata)
   # Create a vector that contains unique character strings for each subj
-  subjids <- levels(subjects)
-  # print(subjids)
+  subjids <- levels(newdata$subjects)
+  print(subjids)
   # Create a matrix with rows = # of subjects and 1 col with the AOI subjects first looked
   firstlook <- matrix(nrow = length(subjids), ncol = 1)
   row.names(firstlook) <- subjids
   colnames(firstlook) <- c("FirstLook-GP")
   # for loop to search for each ind. subj
   for (s in 1:length(subjids)) {
-    # print("subjectid")
-    # print(s)
-    # print(subjids[s])
+    print("subjectid")
+    print(s)
+    print(subjids[s])
     # Creates a vector with the index of subjects
-    subjindex <- grep(subjids[s], subjects)
-    # print("subjindex")
-    # print(subjindex)
+    subjindex <- grep(subjids[s], newdata$subjects)
+    print("subjindex")
+    print(subjindex)
     # Where the function should start searching for hits to neccessaryAOI
     starti <- subjindex[1]
-    # print(starti)
+    print(starti)
     # Where the function should stop searching for hits to neccessaryAOI
     endi <- subjindex[length(subjindex)]
-    # print(endi)
+    print(endi)
     # 'count' is a dummy variable to break out of loop
     count <- 0
     # search for a hit to necessary AOI for each individual subj
     for (i in starti:(endi-1)) {
       # Look for a hit to the necessary AOI
-      # print(neccessaryAOI[i])
-      if (neccessaryAOI[i] == 1) {
+      if (newdata$neccessaryAOI[i] == 1) {
         # Search iteratively until there is a hit in 1st AOI
         for (x in (i + 1):endi) {
-          if (aoi1[x] == 1 && count == 0) {
+          if (newdata$aoi1[x] == 1 && count == 0) {
             count <- count + 1
             # Add 1st AOI to the empy matrix
             firstlook[s, count] <- "left"
             break
           }
-          if (aoi2[x] == 1 && count == 0) {
+          if (newdata$aoi2[x] == 1 && count == 0) {
             count <- count + 1
             # Add 2nd AOI to the empty matrix
             firstlook[s, count] <- "right"
@@ -116,7 +127,7 @@ firstlook_gp <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
 }
 
 
-
+firstlook_gp(test, "SubjectID", "HandAOI", "AOI1", "AOI2")
 
 
 
