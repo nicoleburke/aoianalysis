@@ -13,8 +13,15 @@
 # Get rid of NAs in  and AOI columns
 getridofNA_gp <- function(dataframe, HandAOI, AOI1, AOI2) {
   library(tidyverse)
-  dataframe <- dataframe %>%
-    mutate(HandAOI = ifelse(is.na(HandAOI), 999, HandAOI),
+  # Change variable input to work with in the function
+  handAOI <- dataframe[HandAOI]
+  aoi1 <- dataframe[AOI1]
+  aoi2 <- dataframe[AOI2]
+  # Make new dataframe
+  newdata <- cbind(handAOI, aoi1, aoi2)
+  # Get rid of NAs
+  newdata <- newdata %>%
+    mutate(handAOI = ifelse(is.na(handAOI), 999, handAOI),
            AOI1 = ifelse(is.na(AOI1), 999, AOI1),
            AOI2 = ifelse(is.na(AOI2), 999, AOI2))
   return(dataframe)
