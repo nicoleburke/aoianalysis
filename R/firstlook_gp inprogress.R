@@ -1,10 +1,8 @@
-#### firstlook_gp
+#### firstlook_gpprogress
 #### a function for the goal prediction paradigm
 #### aoianalysis package
 #### Created by Nicole Burke
 #### 08/2018-11/2018
-
-#### THIS IS A WORK IN PROGRESS
 
 #### What does function do? #####
 # Creates a dataframe with subjects and their first look for Trial1 and Trial2
@@ -23,9 +21,9 @@
 
 ###### The function! ######
 
-## The input for the function needs to be "df$columnhead"
-##    - In a perfect world, Nicole will fix this
-##    - But for now it's fine
+## The input for the function needs to be:
+##      - dataframe: name of dataframe
+##      - The rest of the input should be the column heads in ""
 
 ## AOI1 needs to be "left" and AOI2 needs to be "right"
 ##    - In a perfect world, Nicole will fix this,
@@ -87,13 +85,13 @@ firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
           if (newdata$aoi1[x] == 1 && count == 0) {
             count <- count + 1
             # Add 1st AOI to the empy matrix
-            firstlook[s, count] <- "left"
+            firstlook[s, count] <- AOI1
             break
           }
           if (newdata$aoi2[x] == 1 && count == 0) {
             count <- count + 1
             # Add 2nd AOI to the empty matrix
-            firstlook[s, count] <- "right"
+            firstlook[s, count] <- AOI2
             break
           }
         }
@@ -108,7 +106,6 @@ firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   }
   return(firstlook)
 }
-
 
 
 
