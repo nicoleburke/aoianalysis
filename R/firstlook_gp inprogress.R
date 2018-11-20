@@ -42,15 +42,25 @@
 # Trying to fix the input so that it can just be the columnhead name
 # input will be: dataframe, "columnnames"
 
-test <- read.csv("test.csv")
-test <- getridofNA_gp(test, test$hand, test$left, test$right)
+# trying to figure out why it won't evaluate "neccessaryAOI[i] == 1"
+# First the variables need to be changed
+subjects <- dataframe["SubjectID"]
+# print("subjects")
+# print(subjects)
+handAOI <- dataframe["HandAOI"]
+# print("neccesaryAOI")
+# print(neccessaryAOI)
+aoi1 <- dataframe["AOI1"]
+# print("aoi1")
+# print(aoi1)
+aoi2 <- dataframe["AOI2"]
+# print("aoi2")
+# print(aoi2)
+# make new dataframe
+newdata <- cbind(subjects, handAOI, aoi1, aoi2)
+newdata <- data.frame(newdata)
+colnames(newdata) <- c("subjects", "neccesaryAOI", "aoi1", "aoi2")
 
-
-subjects <- test["SubjectID"]
-neccessaryAOI <- test["HandAOI"]
-aoi1 <- test["AOI1"]
-newdata <- cbind(subjects, neccessaryAOI, aoi1)
-colnames(newdata) <- c("subjects", "neccesaryAOI", "aoi1")
 
 firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   # First the variables need to be changed
@@ -68,7 +78,8 @@ firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   # print(aoi2)
   # make new dataframe
   newdata <- cbind(subjects, handAOI, aoi1, aoi2)
-  colnames(newdata) <- c("subjects", "neccesaryAOI", "aoi1", "aoi2")
+  newdata <- data.frame(newdata)
+  colnames(newdata) <- c("subjects", "neccessaryAOI", "aoi1", "aoi2")
   print("newdata")
   print(newdata)
   # Create a vector that contains unique character strings for each subj
@@ -127,7 +138,7 @@ firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
 }
 
 
-firstlook_gp(test, "SubjectID", "HandAOI", "AOI1", "AOI2")
+newtest <- firstlook_gpprogress(test, "SubjectID", "HandAOI", "AOI1", "AOI2")
 
 
 
