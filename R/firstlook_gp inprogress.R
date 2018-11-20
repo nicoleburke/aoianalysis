@@ -39,7 +39,26 @@
 ##    See 'getridofNA_gp' function
 
 # Input needs to be "df$subjects"
-firstlook_gp <- function(subjects, neccessaryAOI, aoi1, aoi2) {
+# Trying to fix the input so that it can just be the columnhead name
+# input will be: dataframe, "columnnames"
+
+subjects <- data.frame(test["SubjectID"])
+levels(subjects$SubjectID)
+levels(test$SubjectID)
+
+dataframe <- test
+subjects <- dataframe[SubjectID]
+neccessaryAOI <- dataframe[HandAOI]
+aoi1 <-
+
+firstlook_gp <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
+  # First the variables need to be changed
+  subjects <- dataframe[subjectID]
+  neccessaryAOI <- dataframe[handAOI]
+  aoi1 <- dataframe[AOI1]
+  aoi2 <- dataframe[AOI2]
+  # make new dataframe
+  newdata <- cbind(subjects, neccessaryAOI, aoi1, aoi2)
   # Create a vector that contains unique character strings for each subj
   subjids <- levels(subjects)
   # print(subjids)
