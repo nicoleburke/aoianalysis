@@ -2,8 +2,8 @@ Package: aoianalysis
 Type: Package
 Title: aoianalysis
 Version: 0.1.0
-Author: Nicole Burke 
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Nicole Burke and Marlene Meyer
+Maintainer: Nicole Burke <nicoleburke@uchicago.edu>
 Description: This package contains simple functions for AOI analysis. 
 License: MIT + file License
 Encoding: UTF-8
