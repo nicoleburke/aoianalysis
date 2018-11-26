@@ -10,20 +10,23 @@ This gets rid of NA values in the desired AOI colunms so that the firstlook
 function runs smoothly. This function requires the package 'tidyverse'.
 }
 \usage{
-getridofNA_gp(dataframe, HandAOI, AOI1, AOI2)
+getridofNA_gp(dataframe, "subjects", "HandAOI", "AOI1", "AOI2")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{dataframe}{
   The name of the dataframe you are using
-}
-  \item{dataframe$HandAOI}{
+  }
+  \item{"subjects"}{
+  The column of the subjectIDs.
+  }
+  \item{"HandAOI"}{
   The column of the hand AOI.
   }
-  \item{dataframe$AOI}{
+  \item{"AOI1"}{
   The column of one of the desired AOIs.
   }
-  \item{dataframe$AOI2}{
+  \item{"AOI2"}{
   The column of one of the desired AOIs.
   }
 }

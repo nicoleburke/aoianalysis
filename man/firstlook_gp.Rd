@@ -9,22 +9,24 @@ This function specifies which AOI participants look to first for a given trial A
 they have looked to the hand AOI. This function can be used for the goal prediction paradgim.
 }
 \usage{
-firstlook_gp(dataframe$subjects, dataframe$neccessaryAOI,
-              dataframe$aoi1, dataframe$aoi2)
+firstlook_gp(dataframe, "subjectID", "handAOI", "AOI1", "AOI2")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dataframe$subjects}{
+  \item{dataframe}{
+  The name of the dataframe.
+  }
+  \item{"subjectID"}{
   The column with the subjectIDs.
 }
-  \item{dataframe$neccessaryAOI}{
-  The column with the HandAOI.
+  \item{"handAOI"}{
+  The column with the handAOI.
   }
-  \item{dataframe$aoi1}{
-  One of the desired AOI columns. Right now, this should be the "left" AOI.
+  \item{"AOI1"}{
+  One of the desired AOI columns.
   }
-  \item{dataframe$aoi2}{
-  One of the desired AOI columns. Right now, this should be the "right" AOI.
+  \item{"AOI2"}{
+  One of the desired AOI columns.
   }
 }
 \details{
@@ -32,13 +34,13 @@ firstlook_gp(dataframe$subjects, dataframe$neccessaryAOI,
 }
 \value{
 This function returns a dataframe. The rows are each subject and the column is which AOI
-subjects looked too first after they have looked at the hand. If the value is none either 1) infants did not look to either AOI1 or AOI2 after looking at the hand AOI or 2) they never looked to the hand AOI.
+subjects looked to first after they have looked at the hand. If the value is none either 1) infants did not look to either AOI1 or AOI2 after looking at the hand AOI or 2) they never looked to the hand AOI.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-Nicole Burke
+Nicole Burke and Marlene Meyer
 }
 \note{
 %%  ~~further notes~~
