@@ -1,17 +1,11 @@
-#### getridofNA_gp function
-#### aoianalysis package
-#### Created by Nicole Burke
-#### 08/2018-11/2018
+# check
 
-#### What does function do? #####
-# Takes NeccessaryAOI (handAOI) and the other AOI columns
-#   and gets rid of NAs. It replaces NAs with 999.
+test <- read.csv("test.csv")
+str(test)
 
-# Why? Because the boolean evaluations gets mad in the
-#     goal prediction first look function.
+test <- getridofNA_gp(test, "hand", "left", "right")
 
-# Get rid of NAs in  and AOI columns
-getridofNA_gp <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
+getridofNA_gpOG <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
   library(tidyverse)
   # First the variables need to be changed
   subjects <- dataframe[subjects]
@@ -38,6 +32,7 @@ getridofNA_gp <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
   return(newdata)
 }
 
+test <- getridofNA_gpOG(test, "SubjectID", "hand", "miracle1", "miracle2")
 
 
 
@@ -45,5 +40,17 @@ getridofNA_gp <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
 
 
 
+test <- getridofNA_gpOG(test, "hand", "help1", "help2")
 
+str(test)
+
+
+test <- sub("right", "AOItest", test)
+
+
+
+col_names <- sub("right", "AOItest", colnames(test))
+colnames(test) <- col_names
+col_names2 <- sub("left", "AOItest2", colnames(test))
+colnames(test) <- col_names2
 
