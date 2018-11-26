@@ -33,7 +33,7 @@
 
 # input: dataframe, "columnnames"
 
-firstlook_gpprogress <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
+firstlook_gp <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   # First the variables need to be changed
   subjects <- dataframe[subjectID]
   handAOI <- dataframe[handAOI]
