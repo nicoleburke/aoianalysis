@@ -1,10 +1,3 @@
-# check
-
-test <- read.csv("test.csv")
-str(test)
-
-test <- getridofNA_gp(test, "hand", "left", "right")
-
 getridofNA_gpOG <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
   library(tidyverse)
   # First the variables need to be changed
@@ -31,26 +24,3 @@ getridofNA_gpOG <- function(dataframe, subjects, HandAOI, AOI1, AOI2) {
   colnames(newdata) <- col_names2
   return(newdata)
 }
-
-test <- getridofNA_gpOG(test, "SubjectID", "hand", "miracle1", "miracle2")
-
-
-
-
-
-
-
-test <- getridofNA_gpOG(test, "hand", "help1", "help2")
-
-str(test)
-
-
-test <- sub("right", "AOItest", test)
-
-
-
-col_names <- sub("right", "AOItest", colnames(test))
-colnames(test) <- col_names
-col_names2 <- sub("left", "AOItest2", colnames(test))
-colnames(test) <- col_names2
-
