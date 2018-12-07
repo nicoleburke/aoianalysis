@@ -28,19 +28,19 @@ switchA1toA2_inprogress <- function(data_by_trial, subjectID, AOI1, AOI2) {
   colnames(numA1toA2) <- c("NumSwtiches A1toA2")
   # for loop to search for each ind. subj
   for (s in 1:length(subjids)) {
-    # print("subjectid")
-    # print(s)
-    # print(subjids[s])
+    print("subjectid")
+    print(s)
+    print(subjids[s])
     # Creates a vector with the index of subjects
     subjindex <- grep(subjids[s], newdata$subjects)
-    # print("subjindex")
-    # print(subjindex)
+    print("subjindex")
+    print(subjindex)
     # Where the function should start searching for hits to neccessaryAOI
     starti <- subjindex[1]
-    # print(starti)
+    print(starti)
     # Where the function should stop searching for hits to neccessaryAOI
     endi <- subjindex[length(subjindex)]
-    # print(endi)
+    print(endi)
     # search for a hit to necessary AOI for each individual subj
     # numswitchA1toA2 is a dummy variable to add up swtiches
     numswitchA1toA2 <- 0
@@ -54,16 +54,17 @@ switchA1toA2_inprogress <- function(data_by_trial, subjectID, AOI1, AOI2) {
         }
       }
       # Add number of swtiches to dataframe
-      numA1toA2[s, numswitchA1toA2]
+      # numA1toA2[s, numswitchA1toA2]
     }
   }
-  return(numA1toA2)
+  return(numswitchA1toA2)
 }
 
+# here goes nothing part 2
+test <- read.csv("R/testswitch.csv")
+str(test)
 
-
-
-
+switchA1toA2_inprogress(test, "subjectID", "help1", "help2")
 
 
 
