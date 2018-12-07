@@ -34,10 +34,7 @@
 
 # input: dataframe, "columnnames"
 
-
-####### Trying to have one functionn to do total switches
-
-switchestotal_inprogress<- function(data_by_trial, subjectID, AOI1, AOI2) {
+switchestotal <- function(data_by_trial, subjectID, AOI1, AOI2) {
   # First variables need to be changed
   subjects <- data_by_trial[subjectID]
   aoi1 <- data_by_trial[AOI1]
