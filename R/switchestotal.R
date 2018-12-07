@@ -100,10 +100,10 @@ switchestotal_inprogress<- function(data_by_trial, subjectID, AOI1, AOI2) {
       # Add number of swtiches to dataframe per subject
       numswitch[s, 2] <- numswitchA2toA1
     }
+    # Sum the two columns
+    numswitch[s, 3] <- numswitch[s,1] + numswitch[s,2]
   }
   return(numswitch)
 }
-
-
 
 
