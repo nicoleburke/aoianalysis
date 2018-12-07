@@ -32,7 +32,6 @@
 ##    See 'getridofNA_gp' function
 
 # input: dataframe, "columnnames"
-# adding something to make a point
 
 firstlook_gp <- function(dataframe, subjectID, handAOI, AOI1, AOI2) {
   # First the variables need to be changed
