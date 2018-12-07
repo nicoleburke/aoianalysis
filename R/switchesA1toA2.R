@@ -1,4 +1,4 @@
-#### switches
+#### switchesA1toA2
 #### a function to calculate contigent switches b/t 2 AOIs
 #### aoianalysis package
 #### Created by Nicole Burke
@@ -34,7 +34,7 @@
 
 # input: dataframe, "columnnames"
 
-switchA1toA2_inprogress <- function(data_by_trial, subjectID, AOI1, AOI2) {
+switchesA1toA2<- function(data_by_trial, subjectID, AOI1, AOI2) {
   # First variables need to be changed
   subjects <- data_by_trial[subjectID]
   aoi1 <- data_by_trial[AOI1]
