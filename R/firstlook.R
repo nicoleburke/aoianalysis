@@ -5,22 +5,14 @@
 
 ###### The function! ######
 
-## The input for the function needs to be "df$columnhead"
-##    - In a perfect world, Nicole will fix this
-##    - But for now it's fine
-
-## AOI1 needs to be "left" and AOI2 needs to be "right"
-##    - In a perfect world, Nicole will fix this,
-##        so that it is unique to the input
-##    - But for now it's fine
-
 ## Anything in the function that is commented out
 ##    that says "print(___) is just so I could check the function
 
 ## The function does not like NAs for the boolean evaluators
 ##    See 'getridofNA' function
 
-# Input needs to be "df$subjects"
+# Input needs to be: dataframe, "columnheads"
+
 firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
   # Change variables to something the function can work with
   subjects <- data_by_trial[subjectIDs]
@@ -49,7 +41,7 @@ firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
     # print(endi)
     # 'count' is a dummy variable
     count <- 0
-    # search for a hit to necessary AOI for each individual subj
+    # search for the first hit to an AOI for each subject
     for (i in starti:endi) {
       # Search iteratively until there is a hit in 1st AOI
       if (newdata$aoi1[i] == 1 && count == 0) {
@@ -74,3 +66,5 @@ firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
   }
   return(firstlook)
 }
+
+
