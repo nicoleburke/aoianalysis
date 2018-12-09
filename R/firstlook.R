@@ -1,27 +1,35 @@
 #### firstlook function
 #### aoianalysis package
-#### Created by Nicole Burke 
+#### Created by Nicole Burke
 #### 08/2018-11/2018
 
-###### The function! ###### 
+###### The function! ######
 
 ## The input for the function needs to be "df$columnhead"
-##    - In a perfect world, Nicole will fix this 
+##    - In a perfect world, Nicole will fix this
 ##    - But for now it's fine
 
 ## AOI1 needs to be "left" and AOI2 needs to be "right"
-##    - In a perfect world, Nicole will fix this, 
+##    - In a perfect world, Nicole will fix this,
 ##        so that it is unique to the input
 ##    - But for now it's fine
 
-## Anything in the function that is commented out 
+## Anything in the function that is commented out
 ##    that says "print(___) is just so I could check the function
 
-## The function does not like NAs for the boolean evaluators 
-##    See 'getridofNA' function 
+## The function does not like NAs for the boolean evaluators
+##    See 'getridofNA' function
 
-# Input needs to be "df$subjects" 
-firstlook <- function(subjects, aoi1, aoi2) {
+# Input needs to be "df$subjects"
+firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
+  # Change variables to something the function can work with
+  subjects <- data_by_trial[subjectIDs]
+  aoi1 <- data_by_trial[AOI1]
+  aoi2 <- data_by_trial[AOI2]
+  # Make a new dataframe
+  newdata <- cbind(subjects, aoi1, aoi2)
+  newdata <- data.frame(newdata)
+  colnames(newdata) <- c("subjects", "aoi1", "aoi2")
   # Create a vector that contains unique character strings for each subj
   subjids <- levels(subjects)
   # print(subjids)
@@ -29,7 +37,7 @@ firstlook <- function(subjects, aoi1, aoi2) {
   firstlook <- matrix(nrow = length(subjids), ncol = 1)
   row.names(firstlook) <- subjids
   colnames(firstlook) <- c("FirstLook_helping")
-  # a 'for' loop to search for each ind. subj 
+  # a 'for' loop to search for each ind. subj
   for (s in 1:length(subjids)) {
     # print(s)
     # print(subjids[s])
@@ -41,23 +49,23 @@ firstlook <- function(subjects, aoi1, aoi2) {
     # print(endi)
     # 'count' is a dummy variable
     count <- 0
-    # search for a hit to necessary AOI for each individual subj 
+    # search for a hit to necessary AOI for each individual subj
     for (i in starti:endi) {
       # Search iteratively until there is a hit in 1st AOI
       if (aoi1[i] == 1 && count == 0) {
         count <- count + 1
-        # Add 1st AOI to the empy matrix 
+        # Add 1st AOI to the empy matrix
         firstlook[s, count] <- "left"
         break
       }
       if (aoi2[i] == 1 && count == 0) {
         count <- count + 1
-        # Add 2nd AOI to the empty matrix 
+        # Add 2nd AOI to the empty matrix
         firstlook[s, count] <- "right"
         break
       }
     }
-    # If the person does not look to either AOI, 
+    # If the person does not look to either AOI,
     #   put "none" in the column
     if (count == 0) {
       count <- count + 1
