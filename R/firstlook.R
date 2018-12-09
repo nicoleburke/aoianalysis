@@ -31,17 +31,17 @@ firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
   newdata <- data.frame(newdata)
   colnames(newdata) <- c("subjects", "aoi1", "aoi2")
   # Create a vector that contains unique character strings for each subj
-  subjids <- levels(subjects)
+  subjids <- levels(newdata$subjects)
   # print(subjids)
   # Create a matrix with rows = # of subjects and 1 col with the AOI subjects first looked
   firstlook <- matrix(nrow = length(subjids), ncol = 1)
   row.names(firstlook) <- subjids
-  colnames(firstlook) <- c("FirstLook_helping")
+  colnames(firstlook) <- c("FirstLook")
   # a 'for' loop to search for each ind. subj
   for (s in 1:length(subjids)) {
     # print(s)
     # print(subjids[s])
-    subjindex <- grep(subjids[s], subjects)
+    subjindex <- grep(subjids[s], newdata$subjects)
     # print(subjindex)
     starti <- subjindex[1]
     # print(starti)
@@ -52,16 +52,16 @@ firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
     # search for a hit to necessary AOI for each individual subj
     for (i in starti:endi) {
       # Search iteratively until there is a hit in 1st AOI
-      if (aoi1[i] == 1 && count == 0) {
+      if (newdata$aoi1[i] == 1 && count == 0) {
         count <- count + 1
         # Add 1st AOI to the empy matrix
-        firstlook[s, count] <- "left"
+        firstlook[s, count] <- AOI1
         break
       }
-      if (aoi2[i] == 1 && count == 0) {
+      if (newdata$aoi2[i] == 1 && count == 0) {
         count <- count + 1
         # Add 2nd AOI to the empty matrix
-        firstlook[s, count] <- "right"
+        firstlook[s, count] <- AOI2
         break
       }
     }
