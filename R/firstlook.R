@@ -13,6 +13,8 @@
 
 # Input needs to be: dataframe, "columnheads"
 
+# adding a comment to show an example! let's try this agaain
+
 firstlook <- function(data_by_trial, subjectIDs, AOI1, AOI2) {
   # Change variables to something the function can work with
   subjects <- data_by_trial[subjectIDs]
