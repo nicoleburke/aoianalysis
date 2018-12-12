@@ -11,18 +11,21 @@ studies where you want to know which AOI - the left or right AOI - did
 infants/children first look? This data should deal with raw eyetracking data.
 }
 \usage{
-firstlook(dataframe$subjects, dataframe$aoi1, dataframe$aoi2)
+firstlook(data_by_trial, "subjectIDs", "AOI1", "AOI2")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{dataframe$subjects}{
-    the column that contains the subjectIDs
+  \item{data_by_trial}{
+    name of the dataframe. Each df needs to be a unique trial
 }
-  \item{dataframe$aoi1}{
-  the column of 1 of the aois of interest
+  \item{"subjectIDs"}{
+  the column of the subjectIDs
   }
-   \item{dataframe$aoi2}{
-  the column of the other aoi of interest
+  \item{"AOI1"}{
+  the column of one of the desired AOIs
+  }
+  \item{"AOI2"}{
+  the column of one of the desired AOIs
   }
 }
 \details{
