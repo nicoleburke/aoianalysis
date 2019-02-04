@@ -13,7 +13,7 @@
 # There are two ways that needs to go:
 #   1. Each trial is referred to uniquely
 #   2. The same stim is used, so trial type is indicated by "MovieStart" and
-#       "MovieEnd"
+#       "MovieEnd" mdmd
 
 # ^ I am starting with the first one because that's easier
 
