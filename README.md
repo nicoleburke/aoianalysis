@@ -7,16 +7,9 @@ devtools::install_github("nicoleburke/aoianalysis")
 
 library(aoianalysis)
 
-### Importat disclamier! 
+### How to use this package
 
-This package is a work in progress. Please contact Nicole Burke (nicoleburke@uchicago.edu) to discuss how your data should be set-up. 
+Please visit my website (https://nicoleburke.github.io/aoianalysis/) for more infomration about how your data should be set-up to use this package. 
 
-## Notes for me
-
-When data is entered: 
-
-- the subjects column needs to read as a factor or the functions won't work 
-- need to get rid of NAs or the functions won't work 
-- these functions work for each unique trial type 
 
 
