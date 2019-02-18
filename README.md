@@ -9,7 +9,7 @@ library(aoianalysis)
 
 ### How to use this package
 
-Please visit my website (https://nicoleburke.github.io/aoianalysis/) for more infomration about how your data should be set-up to use this package. 
+Please visit my website (https://nicoleburke.github.io/aoianalysis/) for more information about how your data should be set-up to use this package. 
 
 
 
