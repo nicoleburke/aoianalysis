@@ -45,9 +45,11 @@ firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
     subjindex <- grep(subjids[s], newdata$subjects)
     # print(subjindex)
     startt <- subjindex[1]
-    # print(startt)
+    print("startt")
+    print(startt)
     endt <- subjindex[length(subjindex)]
-    # print(endt)
+    print("endt")
+    print(endt)
     # 'count' is a dummy variable
     count <- 0
     # a 'for' loop to search each trial type
