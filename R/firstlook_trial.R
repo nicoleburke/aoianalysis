@@ -32,7 +32,7 @@ firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
   # Create a vector that contains unique character strings for each trial
   trial_names <- levels(newdata$trials)
   print(trial_names)
-  rowlength <- length(subjids)*length(trial_names)
+  rowlength <- length(newdata$subjects)*length(trial_names)
   print(rowlength)
   # Create a matrix with rows = # of subjects and cols with trials and where firstlook AOI
   firstlook <- matrix(nrow = rowlength, ncol = 2)
@@ -59,7 +59,11 @@ firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
       print ("trialindex")
       print(trialindex)
       starti <- trialindex[1]
+      print("starti")
+      print(starti)
       endi <- trialindex[length(trialindex)]
+      print("endi")
+      print(endi)
       for (i in starti:endi) {
         # Search iteratively until there is a hit in 1st AOI
         if (newdata$aoi1[i] == 1 && count == 0) {
@@ -86,7 +90,8 @@ firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
   return(firstlook)
 }
 
-
+datatrial <- read.csv("testswitch.csv")
+str(datatrial)
 firstlook(datatrial, "subjectID", "trialname", "col1", "col2")
 
 
