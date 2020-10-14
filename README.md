@@ -11,7 +11,7 @@ library(aoianalysis)
 
 Please visit my website (https://nicoleburke.github.io/aoianalysis/) for more information about how your data should be set-up to use this package. 
 
-### How to cite aoianlysis
+### How to cite aoianalysis
 
 Burke, N. (2019). aoianalysis: functions for AOI analysis. R package version 0.1.0. https://nicoleburke.github.io/aoianalysis/
 
