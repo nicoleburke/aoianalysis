@@ -16,7 +16,7 @@
 
 # trying to add a layer to go through trial as well as subjects
 
-firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
+#firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
   # Change variables to something the function can work with
   subjects <- data_all[subjectIDs]
   aoi1 <- data_all[AOI1]
@@ -90,9 +90,9 @@ firstlook <- function(data_all,subjectIDs,trialnames,AOI1,AOI2) {
   return(firstlook)
 }
 
-datatrial <- read.csv("testswitch.csv")
-str(datatrial)
-firstlook(datatrial, "subjectID", "trialname", "col1", "col2")
+#datatrial <- read.csv("testswitch.csv")
+#str(datatrial)
+#firstlook(datatrial, "subjectID", "trialname", "col1", "col2")
 
 
 
